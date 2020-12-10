@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-size: 20px;
+            font-family: "Comic Sans MS", cursive, sans-serif;
+        }
+
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 10px 15px;
+            border: 0;
+            background: #333;
+            color: #fff;
+            border-radius: 5px;
+            margin: 5px 0;
+        }
+
+        input[type='text'] {
+            width: 400px;
+            padding: 8px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        #div2 {
+            height:50px;
+            width:400px;
+            padding: 8px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+    </style>
+
+    <meta charset="utf-8" />
+    <!--
+    (32°F − 32) × 5/9 = 0°C
+    -->
+    <script>
+        function sceglitipodiconversione() {
+
+            if (document.getElementById("FaC").checked) {
+
+                daFereneitAcelsius()
+
+            } else if (document.getElementById("CaF").checked) {
+                daCelaFar()
+            }
+
+        }
+
+
+        function daFereneitAcelsius() {
+           
+            let far = document.getElementById("TXlab").value;
+            document.getElementById("labris1").innerHTML = (far - 32) * 5 / 9 +"°C";
+
+        }
+        function daCelaFar() {
+            let cel = document.getElementById("TXlab").value;
+            document.getElementById("labris1").innerHTML = cel * 9 / 5 + 32 +"°F";
+        }
+
+        function radiobuttonSelected() {
+
+            if (document.getElementById("FaC").checked) {
+
+                document.getElementById("farCel").innerHTML = "Fahrenheit: ";
+               
+
+
+            } else if (document.getElementById("CaF").checked) {
+                document.getElementById("farCel").innerHTML = "Celsius: ";
+                
+            }
+
+
+           
+        }
+    </script>
+
+
+    <title></title>
+</head>
+<body>
+
+    <h1>CONVERTITORE TEMPERATURE</h1>
+    <div>
+        <label for="FaC" >Da Fahrenheit a Celsius</label>
+        <input type="radio" id="FaC" name="tipo" value="FC" checked="checked" onclick="radiobuttonSelected()">
+        <label for="CaF">Da Celsius a Fahrenheit </label>
+        <input type="radio" id="CaF" name="tipo" value="CF"  onclick="radiobuttonSelected()" >
+    </div>
+    
+
+    <div>
+
+      
+        <table>
+            <tr>
+                <td>
+                    
+                    <label id="farCel" for="FaC">Fahrenheit: </label>
+                    <input type="text" id="TXlab" name="fname">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button onclick="sceglitipodiconversione()" class="btn">Converti</button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>
+
+
+                        <label id="labris1" style="font-size:20px; width:200px"></label>
+
+
+
+
+
+
+                    </p>
+                </td>
+            </tr>
+        </table>
+
+
+    </div>
+</body>
+</html>
